@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>eve.js - example</title>
+
+        <script type="text/javascript" src="eve.js"></script>
+
+        <style type="text/css">
+        div {display:block;width:99%;position:absolute;bottom:0;text-align:center;padding:5px 0;font-size:3em;font-family:courier;text-shadow:#ccc 0.05em 0.05em 0.1em}
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+        // Create event dispatcher
+        var dispatcher = new EventDispatcher();
+
+        // Add first listener
+        dispatcher.addListener('sayHello', function(args) {
+          console.log(args.say+' first');
+        });
+
+        // Add second listener
+        dispatcher.addListener('sayHello', function(args) {
+          console.log(args.say+' second');
+        });
+
+        // Dispatch event with arguments
+        dispatcher.dispatch('sayHello', {"say":"Hello"});
+        </script>
+
+        <div>
+            Please, open your console!
+        </div>
+    </body>
+</html>
